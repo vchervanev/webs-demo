@@ -1,3 +1,6 @@
+require 'bundler/setup'
+Bundler.require
+
 require_relative 'init'
 
 get '/' do
