@@ -48,6 +48,7 @@ TargetedViewTest.perform(targeted_queue)
 
 # update redis data
 $R = Redis.new( url: ENV['REDIS_URL'])
+$R.multi
 
 $R.del 'general_queue'
 $R.keys('targeted_queues/*').each { |queue| $R.del(queue) }
@@ -67,3 +68,5 @@ input.each do |item|
   object[CONST::INTERESTS*2+1] = object[CONST::INTERESTS*2+1].join(', ')
   $R.hmset("speaker/#{item[CONST::ID]}", object)
 end
+
+$R.exec
