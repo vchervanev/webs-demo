@@ -24,3 +24,13 @@ get '/speakers.json' do
   "{ \"meta\": { \"page\": #{page}, \"total_pages\": #{total_pages} }, \"data\": {\"speakers\": [#{speakers}]} }"
 
 end
+
+get '/view/:view' do |view|
+  path = File.join('public', view)
+  if File.exist?(File.join(File.dirname(__FILE__), 'views', path + '.haml'))
+    haml path.to_sym, layout: nil
+  else
+    404
+  end
+end
+

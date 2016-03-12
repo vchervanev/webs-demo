@@ -1,0 +1,11 @@
+.modal(tabindex="-1" role="dialog")
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close(type="button" ng-click="$hide()") &times;
+        %h4.modal-title(ng-bind-html="title")
+      .modal-body
+        %pre
+          {{currentSpeaker | json }}
+      .modal-footer
+        %button.btn.btn-default(type="button" ng-click="$hide()") Close

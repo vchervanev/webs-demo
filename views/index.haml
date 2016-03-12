@@ -1,21 +1,18 @@
 %div(ng-controller="WebsCtrl")
-  %p
-    %button(type="button" class="btn btn-lg btn-primary" data-animation="am-fade-and-scale" data-placement="center" bs-modal="modal" html="true")
-      Test modal
-    .speakers-table.container-fluid.center-block
-      .row
-        .col-xs-12(ng-repeat="speaker in speakers")
-          .row
-            .col-xs-2
-              {{ speaker.importance }}
-              %img.thumbnail(ng-src="{{speaker.thumbnail_url}}")
-            .col-xs-2
-              {{ speaker.first_name + ' ' + speaker.last_name }}
-            .col-xs-2
-              {{ speaker.title }}
-            .col-xs-2
-              {{ speaker.company }}
-            .col-xs-2
-              {{ speaker.country }}
-            .col-xs-2
-              {{ speaker.interests }}
+  .speakers-table.container-fluid.center-block
+    .row
+      .col-xs-12(ng-repeat="speaker in speakers")
+        .row(ng-click="showSpeakerInfo(speaker)")
+          .col-xs-2
+            {{ speaker.importance }}
+            %img.thumbnail(ng-src="{{speaker.thumbnail_url}}")
+          .col-xs-2
+            {{ speaker.first_name + ' ' + speaker.last_name }}
+          .col-xs-2
+            {{ speaker.title }}
+          .col-xs-2
+            {{ speaker.company }}
+          .col-xs-2
+            {{ speaker.country }}
+          .col-xs-2
+            {{ speaker.interests }}
