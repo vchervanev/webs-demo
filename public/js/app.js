@@ -10,7 +10,7 @@
     };
 
     $speakers.loadSpeakers(1, 100).then(function(result){
-      $scope.test = result
+      $scope.speakers = result
     });
 
   }]);

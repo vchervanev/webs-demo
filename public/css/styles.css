@@ -1,0 +1,10 @@
+img.thumbnail {
+    width: 200px;
+    height: 200px;
+}
+
+.speakers-table {
+    min-width: 700px;
+}
+.speakers-table div {
+}
