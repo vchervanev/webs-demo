@@ -1,6 +1,6 @@
 (function (angular) {
 
-  var myApp = angular.module('WebsDemo', ['mgcrea.ngStrap', 'ngSanitize']);
+  var myApp = angular.module('WebsDemo', ['ngAnimate', 'mgcrea.ngStrap', 'ngSanitize']);
 
   myApp.controller('WebsCtrl', ['$scope', function ($scope) {
 
