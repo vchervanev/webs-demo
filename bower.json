@@ -1,0 +1,24 @@
+{
+  "name": "webs-demo",
+  "homepage": "https://github.com/vchervanev/webs-demo",
+  "authors": [
+    "Vladimir Chervanev <v1chervanev@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-strap": "^2.3.7",
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.0",
+    "angular-sanitize": "^1.5.0"
+  }
+}

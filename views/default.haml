@@ -2,5 +2,13 @@
 %html
   %head
     %title Demo App
-  %body
+    %script(src="js/lib/jquery.min.js")
+    %script(src="js/lib/angular.min.js")
+    %script(src="js/lib/angular-sanitize.min.js")
+    %script(src="js/lib/angular-strap/angular-strap.min.js")
+    %script(src="js/lib/angular-strap/angular-strap.tpl.min.js")
+    %script(src="js/app.js")
+    %link(rel="stylesheet" href="js/lib/bootstrap/css/bootstrap.min.css")
+    %link(rel="stylesheet" type="text/css" href="css/styles.css")
+  %body(ng-app='WebsDemo')
     = yield
