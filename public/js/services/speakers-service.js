@@ -15,4 +15,16 @@ angular.module('WebsDemo')
       });
     };
 
+    this.loadSpeakerDetails = function (id) {
+      return $http({
+        method: 'GET',
+        url: '/speakers/' + id
+      }).then(function(response) {
+        return response.data
+      }, function() {
+        alert('Something went wrong, please try again later');
+        return null
+      });
+    };
+
   }]);
