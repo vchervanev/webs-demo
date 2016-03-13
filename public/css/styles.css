@@ -1,10 +1,53 @@
 img.thumbnail {
     width: 200px;
-    height: 200px;
+    height: auto;
+    margin:0 auto;
 }
 
 .speakers-table {
-    min-width: 700px;
+    min-width: 210px;
+    max-width: 1200px;
 }
-.speakers-table div {
+
+.truncate {
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.speaker {
+    float: left;
+    width: 20%;
+    max-width: 400px;
+    height: 350px;
+}
+
+@media (max-width: 400px) {
+    .x1 {
+        width: 100%;
+    }
+}
+
+@media (min-width: 401px) AND (max-width: 600px) {
+    .x2 {
+        width: 50%;
+    }
+}
+
+@media (min-width: 601px) AND (max-width: 800px) {
+    .x3 {
+        width: 33.33%;
+    }
+}
+
+@media (min-width: 801px) AND (max-width: 1000px) {
+    .x4 {
+        width: 25%;
+    }
+}
+@media (min-width: 1001px) {
+    .x5 {
+        width: 20%;
+    }
 }
