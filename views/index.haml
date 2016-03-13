@@ -1,5 +1,5 @@
 %div(ng-controller="WebsCtrl")
-  .speakers-table.center-block
+  .speakers-table.center-block(when-scrolled-to-bottom="loadMore()")
     .text-center
       .interests-list
         %span.interest(ng-repeat="interest in interests")
@@ -18,4 +18,3 @@
         {{ speaker.country }}
       .truncate
         {{ speaker.interests }}
-    %button(ng-click="loadMore()") Load More...

@@ -21,7 +21,6 @@
     };
 
     $scope.loadMore = function(){
-      alert($speakers.nextPage)
       if ($speakers.nextPage){
         loadAndAppendPage($speakers.nextPage);
       }
