@@ -6,6 +6,6 @@
         %h4.modal-title(ng-bind-html="title")
       .modal-body
         %pre
-          {{currentSpeakerDetails | json }}
+          {{speaker | json }}
       .modal-footer
         %button.btn.btn-default(type="button" ng-click="$hide()") Close
