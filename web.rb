@@ -2,27 +2,41 @@ require 'bundler/setup'
 Bundler.require
 
 require_relative 'init'
+require_relative 'speaker_loader'
 require 'json'
+
+def safe_to_i(v)
+  v && v.to_i
+end
 
 get '/' do
   haml :index, layout: :default
 end
 
-get '/speakers.json' do
+get '/speakers' do
   content_type :json
-  page = (params['page'] || 1).to_i
-  page_size = (params['page_size'] || 25).to_i
 
-  total_pages = (REDIS.llen('general_queue').to_f / page_size).ceil
-  ids = REDIS.lrange('general_queue', (page-1)*page_size, page*page_size-1) || []
-  speakers = REDIS.multi do
-    ids.each do |id|
-      REDIS.hgetall("speaker/#{id}")
-    end
-  end.map(&:to_json).join(",\n")
+  page_number = safe_to_i(params['page'])
+  page_size = safe_to_i(params['page_size'])
+  interest = params['interest'] #todo check exists?
 
-  "{ \"meta\": { \"page\": #{page}, \"total_pages\": #{total_pages} }, \"data\": {\"speakers\": [#{speakers}]} }"
+  first, last, page_count, page_size = SpeakerLoader.limits(interest, page_number, page_size)
 
+  speakers = SpeakerLoader.load_queue(interest, first, last).map(&:to_json).join(",\n")
+
+  meta = {
+      page: page_number,
+      total_pages: page_count,
+      page_size: page_size
+  }
+
+  "{ \"meta\": #{meta.to_json}, \"data\": {\"speakers\": [#{speakers}]} }"
+end
+
+get '/speakers/:id' do |id|
+  content_type :json
+
+  SpeakerLoader.details(id).to_json
 end
 
 get '/view/:view' do |view|
@@ -33,4 +47,3 @@ get '/view/:view' do |view|
     404
   end
 end
-

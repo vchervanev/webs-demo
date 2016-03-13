@@ -6,7 +6,7 @@ angular.module('WebsDemo')
     this.loadSpeakers = function (page, pageSize) {
       return $http({
         method: 'GET',
-        url: '/speakers.json',
+        url: '/speakers',
         params: {page: page, page_size: pageSize}
       }).then(function(response) {
         return response.data.data.speakers
