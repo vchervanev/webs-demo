@@ -18,7 +18,7 @@ get '/speakers' do
 
   page_number = safe_to_i(params['page'])
   page_size = safe_to_i(params['page_size'])
-  interest = params['interest'] #todo check exists?
+  interest = params['interest']
 
   first, last, page_count, page_size = SpeakerLoader.limits(interest, page_number, page_size)
 
