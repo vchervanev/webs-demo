@@ -48,10 +48,9 @@ TargetedViewTest.perform(targeted_queue)
 
 # update redis data
 $R = Redis.new( url: ENV['REDIS_URL'])
-$R.multi
-
-$R.del 'general_queue'
 $R.keys('targeted_queues/*').each { |queue| $R.del(queue) }
+$R.multi
+$R.del 'general_queue'
 $R.del 'general_queue'
 $R.rpush 'general_queue', general_queue.map {|item|item[CONST::ID]}
 

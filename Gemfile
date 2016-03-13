@@ -1,5 +1,5 @@
 ruby "2.3.0"
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 gem "puma"
 gem "foreman"
 
