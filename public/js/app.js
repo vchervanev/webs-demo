@@ -20,12 +20,28 @@
       loadInitialList();
     };
 
+    $scope.loadMore = function(){
+      alert($speakers.nextPage)
+      if ($speakers.nextPage){
+        loadAndAppendPage($speakers.nextPage);
+      }
+    };
+
     // -- private --
 
     function loadInitialList() {
-      $speakers.loadSpeakers(1, 100, $scope.selectedInterest).then(function(result){
-        $scope.speakers = result
+      $scope.speakers = [];
+      loadAndAppendPage(1);
+    }
+
+    function loadAndAppendPage(page){
+      $speakers.loadSpeakers(page, 100, $scope.selectedInterest).then(function(result){
+        push_array(result, $scope.speakers)
       });
+    }
+
+    function push_array(src, dst){
+      dst.push.apply(dst, src);
     }
 
   }]);
