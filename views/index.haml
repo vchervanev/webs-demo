@@ -1,5 +1,11 @@
 %div(ng-controller="WebsCtrl")
   .speakers-table.center-block
+    .text-center
+      .interests-list
+        %span.interest(ng-repeat="interest in interests")
+          %span.interest-title(ng-bind="interest" ng-click="applyInterest(interest)" ng-class="{ active: interest == selectedInterest }")
+          %span.separator
+    %hr
     .speaker.center-block.text-center.x1.x2.x3.x4.x5(ng-repeat="speaker in speakers" ng-click="showSpeakerInfo(speaker)")
       %img.thumbnail(ng-src="{{speaker.thumbnail_url}}" alt="No foto available")
       .truncate

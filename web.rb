@@ -39,6 +39,12 @@ get '/speakers/:id' do |id|
   SpeakerLoader.details(id).to_json
 end
 
+get '/interests' do
+  content_type :json
+
+  SpeakerLoader.queues.to_json
+end
+
 get '/view/:view' do |view|
   path = File.join('public', view)
   if File.exist?(File.join(File.dirname(__FILE__), 'views', path + '.haml'))

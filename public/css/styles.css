@@ -62,3 +62,33 @@ img.thumbnail {
     width: auto;
     border-radius: 200px;
 }
+
+/* interests */
+
+select.interests {
+    border-width: 2px;
+    height: 20px;
+    width: 50px;
+    margin: 5px auto 5px auto;
+}
+
+.interest-title {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #777;
+    font-size: 1.5em;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.interest-title.active{
+    text-decoration: underline;
+}
+
+span.separator {
+    padding: 0 20px;
+}
+
+/* remove last interest's separator */
+.interests-list > .interest:last-child > .separator {
+    display: none;
+}
