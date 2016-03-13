@@ -3,9 +3,12 @@
     .modal-content
       .modal-header
         %button.close(type="button" ng-click="$hide()") &times;
-        %h4.modal-title(ng-bind-html="title")
-      .modal-body
-        %pre
-          {{speaker | json }}
+        %h4.modal-title {{ speaker.first_name + ' ' + speaker.last_name}}
+      .modal-body.text-center
+        %img.speaker-image(ng-src="{{speaker.image_url}}" alt="No foto available")
+        .speaker-position {{ speaker.title }} at {{ speaker.company }}
+        .speaker-county From {{ speaker.country }}
+        .bio {{ speaker.bio }}
+        .interests {{ speaker.interests }}
       .modal-footer
         %button.btn.btn-default(type="button" ng-click="$hide()") Close
