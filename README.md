@@ -1,4 +1,5 @@
-_Test project using Ruby, Sinatra, AngularJS and Redis_
+_Test project using Ruby, Sinatra, AngularJS and Redis_ 
+[![Code Climate](https://codeclimate.com/github/vchervanev/webs-demo/badges/gpa.svg)](https://codeclimate.com/github/vchervanev/webs-demo)
 
 This README describes how to run the project and general details about the solution. 
 
